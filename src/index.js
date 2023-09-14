@@ -9,10 +9,13 @@ searchButton.addEventListener('click', function() {
 
 
 async function searchWeather() {
-    const locationInput = document.getElementById('locationInput').value;
+    let locationInput = document.getElementById('locationInput').value;
+    if (!locationInput) {
+        locationInput = "London";
+    }
+
     const weatherData = await fetchWeather(locationInput);
-    const processedData = processData(weatherData);
-    displayWeather(processedData);
+    displayWeather(weatherData);
 }
 
 async function fetchWeather(location){
@@ -22,11 +25,21 @@ async function fetchWeather(location){
     return rawWeatherData;
 }
 
-function processData(){
-    console.log("hi")
-}
-function displayWeather(){
-    
+
+function displayWeather(data){
+    const location = data.location;
+  const currentWeather = data.current;
+
+  const cityName = location.name;
+  const country = location.country;
+  const temperatureCelsius = currentWeather.temp_c;
+  const temperatureFahrenheit = currentWeather.temp_f;
+  const weatherCondition = currentWeather.condition.text;
+  const windSpeedMph = currentWeather.wind_mph;
+  const windSpeedKph = currentWeather.wind_kph;
+  const humidity = currentWeather.humidity;
+
+  console.log(windSpeedKph)
 }
 
 
