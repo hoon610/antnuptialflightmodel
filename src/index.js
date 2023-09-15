@@ -1,9 +1,9 @@
 import './style.css';
 
-
+searchWeather("Lowell")
 const searchButton = document.getElementById('searchButton');
 
-searchButton.addEventListener('click', function() {
+searchButton.addEventListener('click', function () {
     searchWeather();
 });
 
@@ -11,7 +11,7 @@ searchButton.addEventListener('click', function() {
 async function searchWeather() {
     let locationInput = document.getElementById('locationInput').value;
     if (!locationInput) {
-        locationInput = "London";
+        locationInput = "Lowell";
     }
 
     const weatherData = await fetchWeather(locationInput);
@@ -19,7 +19,7 @@ async function searchWeather() {
     displayFlightData(weatherData);
 }
 
-async function fetchWeather(location){
+async function fetchWeather(location) {
     const apiKey = '1cd253fc61af4715bf3191326231808';
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`, { mode: 'cors' });
     const rawWeatherData = await response.json();
@@ -27,22 +27,61 @@ async function fetchWeather(location){
 }
 
 
-function displayWeather(data){
+function displayWeather(data) {
     const location = data.location;
-  const currentWeather = data.current;
+    const currentWeather = data.current;
 
-  const cityName = location.name;
-  const country = location.country;
-  const temperatureCelsius = currentWeather.temp_c;
-  const temperatureFahrenheit = currentWeather.temp_f;
-  const weatherCondition = currentWeather.condition.text;
-  const windSpeedMph = currentWeather.wind_mph;
-  const windSpeedKph = currentWeather.wind_kph;
-  const humidity = currentWeather.humidity;
+    const cityName = location.name;
+    const country = location.country;
+    const localtime = location.localtime;
+    const inputDate = new Date(localtime);
+    const dateFormatOptions = {
+        year: '2-digit',
+        month: 'short',
+        day: 'numeric',
+    };
+    const formattedDate = inputDate.toLocaleDateString('en-US', dateFormatOptions);
+
+    const timeFormatOptions = {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+    };
+    const formattedTime = inputDate.toLocaleTimeString('en-US', timeFormatOptions);
+
+
+    const temperatureCelsius = currentWeather.temp_c;
+    const temperatureFahrenheit = currentWeather.temp_f;
+    const weatherCondition = currentWeather.condition.text;
+    const windSpeedMph = currentWeather.wind_mph;
+    const windSpeedKph = currentWeather.wind_kph;
+    const humidity = currentWeather.humidity;
+    const feelstemperatureCelsius = currentWeather.feelslike_c;
+    const feelstemperatureFahrenheit = currentWeather.feelslike_f;
+    const uv = currentWeather.uv;
+
+
+    const conditionElement = document.querySelector('p.condition');
+    conditionElement.textContent = weatherCondition;
+    const locationElement = document.querySelector('p.location');
+    locationElement.textContent = cityName + ', ' + country;
+    const dateElement = document.querySelector('p.date');
+    dateElement.textContent = formattedDate;
+    const timeElement = document.querySelector('p.time');
+    timeElement.textContent = formattedTime;
+    const temperatureElement = document.querySelector('p.temperature');
+    temperatureElement.textContent = `${temperatureCelsius} °C`;
+    const feelslikeElement = document.querySelector('p.feelslike');
+    feelslikeElement.textContent = `${feelstemperatureCelsius} °C`;
+    const humidityElement = document.querySelector('p.humidity');
+    humidityElement.textContent = humidity + '%';
+    const uvElement = document.querySelector('p.uv');
+    uvElement.textContent = uv;
+
 }
 
-function displayFlightData(data){
-  const location = data.location;
+function displayFlightData(data) {
+    const location = data.location;
   const currentWeather = data.current;
   const lat = location.lat;
   const temperatureCelsius = currentWeather.temp_c;

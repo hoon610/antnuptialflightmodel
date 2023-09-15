@@ -1,3 +1,51 @@
-body{
+body {
     font-family: 'Roboto', sans-serif;
+    padding: 2rem; 
+}
+
+@media (min-width: 800px) {
+    body {
+        padding: 4rem; 
+    }
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+}
+.condition{
+    font-size: 3rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+}
+.location{
+    font-size: 1.2rem;
+    margin-top: .5rem;
+    margin-bottom: 0.5rem;
+}
+.date, .time{
+    font-size: .75rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.temperature{
+    margin-bottom: 0.2rem;
+    margin-top: 2rem;
+    font-size: 4rem;
+    font-weight: 700;
+}
+.displayCF{
+    margin-top: .1rem;
+    font-size: .8rem;
+    margin-bottom: 3rem;
+}
+.feelslikelabel, .humiditylabel, .uvlabel{
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    margin-top: 2rem;
+}
+.feelslike, .humidity, .uv{
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
 }
