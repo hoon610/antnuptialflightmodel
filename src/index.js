@@ -17,6 +17,7 @@ async function searchWeather() {
     const weatherData = await fetchWeather(locationInput);
     displayWeather(weatherData);
     displayFlightData(weatherData);
+    displayFunFact();
 }
 
 async function fetchWeather(location) {
@@ -120,12 +121,20 @@ function displayFlightData(data) {
   }
 }
 
+function displayFunFact(){
+    const facts = [
+        "Due to their small size, ants are extremely prone to dessication",
+        "String 2",
+        "String 3",
+        "String 4",
+        "String 5"
+    ];
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    const randomFact = facts[randomIndex];
+    const factElement = document.querySelector('p.funfact');
+    factElement.textContent = randomFact;
+}
 
 
 
-
-
-
-
-console.log("hello")
 

@@ -49,3 +49,9 @@ body {
     margin-bottom: 0.2rem;
     margin-top: 0.2rem;
 }
+.flight{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
