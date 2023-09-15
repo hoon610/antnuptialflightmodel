@@ -96,28 +96,28 @@ function displayFlightData(data) {
   const humidityThreshhold = 85;
   const favorableWeatherConditions = [1000,1003,1006,1009,1135,1150,1153,1063,1087];
   const rainyConditions = [1180,1183,1186,1189,1192,1195,1240,1243,1246,1273,1276]
-
+  const statusElement = document.querySelector('p.status');
 
   if (temperatureCelsius >= lowerTempLimit &&
       temperatureCelsius <= upperTempLimit &&
       humidity >= humidityThreshhold &&
       favorableWeatherConditions.includes(weatherCondition)) {
-    console.log("Very favorable for ant mating flights");
+    statusElement.textContent = "Very favorable conditions for ant mating flights";
   } else if (temperatureCelsius >= lowerTempLimitlite &&
     temperatureCelsius <= upperTempLimit &&
     humidity >= humidityThreshholdlite &&
     favorableWeatherConditions.includes(weatherCondition)) {
-    console.log("Slightly favorable conditions for ant mating flights");
+    statusElement.textContent = "Slightly cold, but still possible for ant mating flights";
   } else if (temperatureCelsius < lowerTempLimitlite) {
-    console.log("It is too cold for most mating flights");
+    statusElement.textContent = "It is too cold for ant mating flights";
   } else if (temperatureCelsius > upperTempLimit) {
-    console.log("It is too hot for most mating flights");
+    statusElement.textContent = "It is too hot for ant mating flights";
   } else if (humidity < humidityThreshholdlite) {
-    console.log("It is too dry for most mating flights");
+    statusElement.textContent = "It is too dry for ant mating flights";
   } else if (rainyConditions.includes(weatherCondition)) {
-    console.log("It is too rainy for ants to be out flying");
+    statusElement.textContent = "It is too rainy for ant mating flights";
   } else {
-    console.log("Conditions are not good for mating flights");
+    statusElement.textContent = "Conditions are not good for ant mating flights";
   }
 }
 
