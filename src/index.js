@@ -16,6 +16,7 @@ async function searchWeather() {
 
     const weatherData = await fetchWeather(locationInput);
     displayWeather(weatherData);
+    displayFlightData(weatherData);
 }
 
 async function fetchWeather(location){
@@ -38,9 +39,53 @@ function displayWeather(data){
   const windSpeedMph = currentWeather.wind_mph;
   const windSpeedKph = currentWeather.wind_kph;
   const humidity = currentWeather.humidity;
-
-  console.log(windSpeedKph)
 }
+
+function displayFlightData(data){
+  const location = data.location;
+  const currentWeather = data.current;
+  const lat = location.lat;
+  const temperatureCelsius = currentWeather.temp_c;
+  const weatherCondition = currentWeather.condition.code;
+  const humidity = currentWeather.humidity;
+
+  const lowerTempLimitlite = 15;
+  const lowerTempLimit = 20;
+  const upperTempLimit = 33;
+  const humidityThreshholdlite = 75;
+  const humidityThreshhold = 85;
+  const favorableWeatherConditions = [1000,1003,1006,1009,1135,1150,1153,1063,1087];
+  const rainyConditions = [1180,1183,1186,1189,1192,1195,1240,1243,1246,1273,1276]
+
+
+  if (temperatureCelsius >= lowerTempLimit &&
+      temperatureCelsius <= upperTempLimit &&
+      humidity >= humidityThreshhold &&
+      favorableWeatherConditions.includes(weatherCondition)) {
+    console.log("Very favorable for ant mating flights");
+  } else if (temperatureCelsius >= lowerTempLimitlite &&
+    temperatureCelsius <= upperTempLimit &&
+    humidity >= humidityThreshholdlite &&
+    favorableWeatherConditions.includes(weatherCondition)) {
+    console.log("Slightly favorable conditions for ant mating flights");
+  } else if (temperatureCelsius < lowerTempLimitlite) {
+    console.log("It is too cold for most mating flights");
+  } else if (temperatureCelsius > upperTempLimit) {
+    console.log("It is too hot for most mating flights");
+  } else if (humidity < humidityThreshholdlite) {
+    console.log("It is too dry for most mating flights");
+  } else if (rainyConditions.includes(weatherCondition)) {
+    console.log("It is too rainy for ants to be out flying");
+  } else {
+    console.log("Conditions are not good for mating flights");
+  }
+}
+
+
+
+
+
+
 
 
 console.log("hello")
