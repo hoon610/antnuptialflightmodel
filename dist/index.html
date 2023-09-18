@@ -8,34 +8,58 @@
     <script src="main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="./images/ant.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="main">
-        <div id="content">
-            <p class="condition"></p>
-            <p class="location"></p>
-            <p class="date"></p>
-            <p class="time"></p>
-            <p class="temperature"></p>
-            <p class="displayCF">Display &deg;F</p>
-            <input type="text" id="locationInput" placeholder="London">
-            <button id="searchButton">Search</button>
+    </head>
+    
+    <body>
+        <div class="maincontent">
+            <div class="main">
+                <div id="content">
+                    <p class="condition"></p>
+                    <p class="location"></p>
+                    <p class="date"></p>
+                    <p class="time"></p>
+                    <p class="temperature"></p>
+                    <p class="displayCF">Display &deg;F</p>
+                    <input type="text" id="locationInput" placeholder="London">
+                    <button id="searchButton">Search</button>
+                </div>
+    
+                <div id="content2">
+                    <p class="feelslikelabel">Feels Like</p>
+                    <p class="feelslike"> &deg;C</p>
+                    <p class="humiditylabel">Humidity</p>
+                    <p class="humidity"></p>
+                    <p class="uvlabel">UV Index</p>
+                    <p class="uv"></p>
+                </div>
+            </div>
+            <div class="flight">
+                <p class="status"></p>
+                <div class="factcontainer">
+                    <p class="funfactlabel">Did you know?</p>
+                    <p class="funfact"></p>
+                </div>
+            </div>
         </div>
     
-        <div id="content2">
-            <p class="feelslikelabel">Feels Like</p>
-            <p class="feelslike"> &deg;C</p>
-            <p class="humiditylabel">Humidity</p>
-            <p class="humidity"></p>
-            <p class="uvlabel">UV Index</p>
-            <p class="uv"></p>
+        <footer>
+        <div class="about">
+            All weather data is sourced from weatherapi.com.
+The likelihood of ongoing nuptial flights is calculated using a model that combines this weather data with historical nuptial flight data.
+Historical flight data for various ant species, including Camponotus, Formica, Pheidole, Temnothorax, Tetramorium, Lasius, Aphaenogaster, Myrmica, and Atta, is utilized.
+Flight data was obtained from the Asociación Ibérica de Mirmecología via AntFlights.com.
         </div>
+        <div class="footernameline">
+        <p class="footername">David Kang</p>
+        
+        <a class="github-icon" href="https://github.com/hoon610" target="_blank">
+            <img src="images/github-mark.svg" alt="GitHub Icon" style="width: 1.5rem; height: 1.5rem;"> 
+        </a>
     </div>
-    <div class="flight">
-        <p class="status"></p>
-        <p class="funfactlabel">Did you know?</p>
-        <p class="funfact"></p>
-    </div>
+    </footer>
+    
     </body>
+    
 </html>

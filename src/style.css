@@ -1,12 +1,28 @@
 body {
     font-family: 'Roboto', sans-serif;
-    padding: 2rem; 
+    padding: 2rem;
+    padding-bottom: 10rem;
+    font-size: 1rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: aliceblue;
+    margin: 0; /* Remove default margin to avoid extra space */
+    min-height: 100vh; /* Ensure the body fills the viewport height */
+    position: relative; 
 }
-
+@media (max-width: 800px) {
+    body {
+        padding: 1rem;
+    }
+    
+}
 @media (min-width: 800px) {
     body {
         padding: 4rem; 
+        font-size: 1rem;
     }
+    
 }
 .main{
     display: flex;
@@ -39,12 +55,12 @@ body {
     margin-bottom: 3rem;
 }
 .feelslikelabel, .humiditylabel, .uvlabel{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 0.2rem;
     margin-top: 2rem;
 }
 .feelslike, .humidity, .uv{
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.2rem;
     margin-top: 0.2rem;
@@ -54,4 +70,77 @@ body {
     align-items: center;
     flex-direction: column;
 
+}
+.status{
+    background-color: rgb(38, 183, 240);
+    color: rgb(54, 52, 52);
+    padding: 2rem;
+    font-size: 3rem;
+    border-radius: 2rem;
+    text-align: center;
+}
+.factcontainer {
+    max-width: 500px;
+    background-color: rgb(38, 183, 240);
+    margin: 0 auto; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    margin-bottom: 4rem;
+}
+.funfactlabel{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.funfact{
+    font-size: 1.5rem;
+    color: rgb(54, 52, 52);
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 0;
+    text-align: center;
+}
+footer{
+    background-color: rgb(229, 239, 248);
+    text-align: center;
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.about{
+    color: black;
+    text-align: left;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+.github-icon:hover {
+    color: #0073e6; 
+}
+.maincontent{
+    margin-bottom: 10rem;
+}
+.github-icon{
+    width: 1.5rem; 
+    height: 1.5rem
+}
+.footername{
+    color: black;
+    margin-right: 0.5rem;
+}
+.footernameline{
+    display: flex;
+    align-items: center;
 }
