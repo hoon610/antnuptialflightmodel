@@ -1,2 +1,4 @@
-# weatherapp
-Web app for displaying current and future weather for chosen location
+# Ant Nuptial Flight Predictor
+Web app that pulls current weather data and runs a model to predict the likelihood of ant nuptial flight occurences
+
+Demo here https://hoon610.github.io/weatherapp/
