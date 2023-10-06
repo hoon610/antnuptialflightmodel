@@ -10,6 +10,9 @@ body {
     margin: 0; /* Remove default margin to avoid extra space */
     position: relative; 
     overflow-x: hidden; /* Add this to hide horizontal overflow */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 800px) {
@@ -133,6 +136,7 @@ footer{
 }
 .maincontent{
     margin-bottom: 5rem;
+    flex-grow: 1;
 }
 .github-icon{
     width: 1.5rem; 
